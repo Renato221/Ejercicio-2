@@ -15,8 +15,12 @@ class Concesionaria {
     
     public void AgregarAuto(Automovil auto) {
 
-        lista.Add(auto);
-        this.nactauto++;
+        if(nactauto < limite) {
+            lista.Add(auto);
+            this.nactauto++;
+        } else {
+            Console.WriteLine("Concesionaria llena!!");
+        }
     }
 
     public void MostrarAuto(Automovil auto) {
