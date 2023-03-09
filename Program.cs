@@ -4,23 +4,47 @@ class Program {
 
     static void Main(string[] args) {
 
-        Concesionaria concesionaria = new Concesionaria(15);
-        Automovil auto = new Automovil("XXX", "Pirata", "001", 300000, 99.99);
-        Automovil auto2 = new Automovil("XX1", "Pirata", "002", 300000, 99.98);
-        Automovil auto3 = new Automovil("XX2", "Pirata", "003", 300000, 99.95);
-        concesionaria.AgregarAuto(auto);
-        concesionaria.AgregarAuto(auto2);
-        concesionaria.AgregarAuto(auto3);
-        
-        concesionaria.MostrarAuto(auto);
-        Console.WriteLine("1-------------------------------------");
-        concesionaria.MostrarAutos();
-        Console.WriteLine("2-------------------------------------");
-        concesionaria.EliminarAuto(auto3);
-        concesionaria.MostrarAutos();
-        Console.WriteLine("3-------------------------------------");
-        concesionaria.VaciarConcesionaria();
-        concesionaria.MostrarAutos();
-        Console.WriteLine("4_____________________________________");
+        bool MostrarMenu = true;
+
+        while(MostrarMenu){
+
+            MostrarMenu = Menu();
+        }
+    }
+
+    public static bool Menu() {
+
+        Console.Clear();
+        Console.WriteLine("Seleccione una opción: ");
+        Console.WriteLine("[1] Agregar automovil");
+        Console.WriteLine("[2] Eliminar Automovil ");
+        Console.WriteLine("[3] Buscar Automovil ");
+        Console.WriteLine("[4] Listar todos ");
+        Console.WriteLine("[5] Salir");
+        Console.Write("Opcion: ");
+
+        switch(Console.ReadLine()){
+
+            case "1":
+                Console.WriteLine("Seleccionaste [1]");
+                Console.ReadLine();
+                return true;
+            case "2":
+                Console.WriteLine("Seleccionaste [2]");
+                Console.ReadLine();
+                return true;
+            case "3":
+                Console.WriteLine("Seleccionaste [3]");
+                Console.ReadLine();
+                return true;
+            case "4":
+                Console.WriteLine("Seleccionaste [4]");
+                Console.ReadLine();
+                return true;
+            case "5":
+                return false;
+            default:
+                return true;
+        }
     }
 }

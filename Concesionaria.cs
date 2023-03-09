@@ -4,54 +4,73 @@ class Concesionaria {
 
     public List<Automovil> lista;
     public int limite;
-    public int nactauto;
+    public int NumeroActual;
 
     public Concesionaria(int limite) {
 
         this.limite = limite;
-        this.nactauto = 0;
+        this.NumeroActual = 0;
         lista = new List<Automovil>();
     }
     
     public void AgregarAuto(Automovil auto) {
 
-        if(nactauto < limite) {
-            lista.Add(auto);
-            this.nactauto++;
-        } else {
-            Console.WriteLine("Concesionaria llena!!");
+
+        if(NumeroActual != limite && auto != null) {
+
+            Automovil? AutoEncontrado = lista.Find((autolista)=>autolista.id==auto.id);
+
+            if(AutoEncontrado == null){
+                lista.Add(auto);
+                this.NumeroActual++;
+            }
         }
     }
 
-    public void MostrarAuto(Automovil auto) {
+    public void EliminarAuto(string id) {
 
-        Console.WriteLine(auto.ToString());
-    }
+        if(NumeroActual != 0){
 
-    public void EliminarAuto(Automovil auto) {
+            Automovil? AutoEncontrado = lista.Find((auto)=>auto.id==id);
+            /*
+                (auto)=>auto.id==id
+                function(Automovil auto){
 
-        int t;
-
-        t = lista.Count();
-        lista.Remove(auto);
-
-        if(lista.Count() < t) {
-            this.nactauto--;
+                    if(auto.id == id) {
+                        return auto
+                    }
+                }
+            */
+            if(AutoEncontrado != null) {
+                lista.Remove(AutoEncontrado);
+                this.NumeroActual--;
+            }
+            
         }
         
     }
 
+    public void MostrarAuto(string id) {
+
+        Automovil? AutoEncontrado = lista.Find((autolista)=>autolista.id==id);
+
+        if(AutoEncontrado != null) {
+
+            Console.WriteLine(AutoEncontrado.ToString());
+        }
+    }
+
     public void MostrarAutos() {
 
-        foreach(Automovil item in lista) {
+        foreach(Automovil a in lista) {
 
-            MostrarAuto(item);
+            Console.WriteLine(a.ToString());
         }
     }
 
     public void VaciarConcesionaria() {
 
         lista.Clear();
-        this.nactauto = 0;
+        this.NumeroActual = 0;
     }
 }
