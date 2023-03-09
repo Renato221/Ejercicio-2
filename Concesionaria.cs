@@ -2,9 +2,9 @@ namespace Ejercicio_2;
 
 class Concesionaria {
 
-    private List<Automovil> lista;
-    private int limite;
-    private int nactauto;
+    public List<Automovil> lista;
+    public int limite;
+    public int nactauto;
 
     public Concesionaria(int limite) {
 

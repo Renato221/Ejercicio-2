@@ -2,11 +2,11 @@ namespace Ejercicio_2;
 
 class Automovil {
 
-    private string id;
-    private string marca;
-    private string modelo;
-    private int km;
-    private double precio;
+    public string id;
+    public string marca;
+    public string modelo;
+    public int km;
+    public double precio;
 
     public Automovil(string id, string marca, string modelo, int km, double precio) {
 
